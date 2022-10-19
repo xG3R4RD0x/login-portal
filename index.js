@@ -6,6 +6,7 @@
 
  const express = require("express");
  const path = require("path");
+ 
 
  /**
  * App Variables
@@ -25,6 +26,9 @@ app.use(express.static(path.join(__dirname, "public")));
 /**
  * Routes Definitions
  */
+
+//index es el nombre del archivo .pug pero sin la extención
+//la syntax es res.render("archivo en el root",{info que se va a pasar a la pag desde el server})
 
   app.get("/", (req, res) => {
     res.render("index", { title: "Home" })
