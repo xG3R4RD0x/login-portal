@@ -1,19 +1,28 @@
 extends layout
 
 block layout-content
+  
+  img.background_menu#home_background_img(src=("/img/fondo.jpg"))
+  img.background_menu#second_background_img(src=("/food.jpg"))
   div.banner
     h1 G3 Photography
   div.home_nav
     div.nav_option
-      a(href="/user") Home
+      h1.nav_option_text
+        a(href="/user") Home 
     div.nav_option
-      a Portraits
+      h1.nav_option_text
+        a Portrait
+  script.
+    var nav_options = document.getElementsByClassName("nav_option");
+    
+    //falta hacer una función que cambie los fondos cuando se triggeree un evento 
+    //hover en las opciones
+    
+   
+    
+    
 
-      //-div.Message
-      //- div.Title
-      //-   h3 Making the Best
-      //-   h1 Food For Devs
-      //- span.Details Access the WHATABYTE Team Portal
-  div.NavButtons
-    a(href="/user")
-      div.NavButton Just dive in
+
+
+    

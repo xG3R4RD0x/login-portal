@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:800|Merriweather+Sans|Share+Tech+Mono|Permanent+Marker|Pathway+Gothic+One");
-
+@import url("https://fonts.googleapis.com/css?family=Raleway:800|Merriweather+Sans|Pathway+Gothic+One|Fjalla+One");
 
 
 * {
@@ -12,39 +11,83 @@ body,
   height: 100%;
   width: 100%;
 }
-
-.banner, .home_nav{
+.banner,
+.home_nav {
   font-family: 'Pathway Gothic One';
 }
 
-.banner{
+.banner {
   display: flex;
   justify-content: flex-start;
   font-size: 3em;
 }
-.nav_option{
-  text-transform: uppercase;
-  font-size: 4vw;
-  line-height: .9em;
-  margin-left: 0px;
-  text-decoration:none;
+
+.nav_option {
+  --main_color: black;
+  margin: -.2vw 0 -.2vw 0;
+  padding: .1vw .1vw .1vw .1vw;
+  border-top: .2vw solid transparent;
+  border-bottom: .2vw solid transparent;
 }
-.nav_option:hover{
-  font-family: "Permanent Marker";
-  border-top : 0.2vw solid;
-  border-bottom : 0.2vw solid;
+
+.nav_option:hover {
+  border-top: .2vw solid var(--main_color);
+  border-bottom: .2vw solid var(--main_color);
+}
+
+.nav_option_text {
+  margin: -.2vw 0 -.2vw 0;
+  font-size: 4em;
+  line-height: 1.2em;
+  color: transparent;
+  text-shadow:
+    0 0 var(--main_color),
+    0 1.2em var(--main_color);
   overflow: hidden;
-
-}
-a:link { text-decoration: none; }
-
-
-a:visited { text-decoration: none; 
-color: black;
+  transition: .3s;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
+.nav_option_text:hover {
+  font-weight: normal;
+  text-shadow:
+    0 -1.2em var(--main_color),
+    0 0 var(--main_color);
+}
 
-a:hover { text-decoration: none; }
+.nav_option_text a:link {
+  text-decoration: none;
+  color: transparent;
+}
 
+.nav_option_text a:visited {
+  text-decoration: none;
+  color: transparent;
+}
 
-a:active { text-decoration: none; }
+.nav_option_text a:hover {
+  text-decoration: none;
+  color: transparent;
+}
+
+.nav_option_text a:active {
+  text-decoration: none;
+  color: transparent;
+}
+
+.background_menu {
+/* max-height: 100vh; */
+position: absolute;
+top: 0;
+left: 0;
+}
+
+#home_background_img{
+z-index: -1;
+
+}
+#second_background_img{
+z-index: -2;
+
+}
