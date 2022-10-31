@@ -10,20 +10,25 @@ body,
 #root {
   height: 100%;
   width: 100%;
+  margin: 0;
+  z-index: 1;
 }
+
+
 .banner,
 .home_nav {
   font-family: 'Pathway Gothic One';
+  --main_color: white;
 }
 
 .banner {
   display: flex;
   justify-content: flex-start;
   font-size: 3em;
+  color: var(--main_color);
 }
 
 .nav_option {
-  --main_color: black;
   margin: -.2vw 0 -.2vw 0;
   padding: .1vw .1vw .1vw .1vw;
   border-top: .2vw solid transparent;
@@ -37,6 +42,7 @@ body,
 
 .nav_option_text {
   margin: -.2vw 0 -.2vw 0;
+  margin-left: 5%;
   font-size: 4em;
   line-height: 1.2em;
   color: transparent;
@@ -77,17 +83,79 @@ body,
 }
 
 .background_menu {
-/* max-height: 100vh; */
-position: absolute;
-top: 0;
-left: 0;
+  /* max-height: 100vh; */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-#home_background_img{
-z-index: -1;
+.background_img_container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
 
 }
-#second_background_img{
-z-index: -2;
 
+.background_img {
+  position: absolute;
+  max-width: 100%;
+  opacity: 0;
+
+}
+
+#landing {
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+
+/* ANIMATIONS */
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

@@ -1,17 +1,13 @@
- 
-// function test() {
-//     var x = 45 *87
-// return x    
-//  }
- 
- 
-//  exports.hola= test()
-
-// document.getElementsByClassName("nav_option_text").addEventListener("click",function(){
-// document.getElementById("root").style.cssText ='background-color:"red";transition: .2s;'
-
-//  });
-document.getElementById("test").addEventListener('click', function(){
-this.style.backgroundImage="/login-portal/public/img/fondo.jpg";
-
-});
+nav_options = document.getElementsByClassName("nav_option");
+nav_images= document.getElementsByClassName("background_img");
+for (let i = 0; i < nav_options.length; i++) {
+    nav_options[i].addEventListener("mouseover", function(){
+    nav_images[i].style.animation="fadein .2s linear forwards";
+    nav_images[i].style.zIndex="-1";
+    });
+}
+for (let i = 0; i < nav_options.length; i++) {
+    nav_options[i].addEventListener("mouseout", function(){
+    nav_images[i].style.animation="fadeout .4s linear forwards";
+    });
+}

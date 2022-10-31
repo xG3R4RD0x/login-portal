@@ -1,23 +1,33 @@
 extends layout
 
 block layout-content
-  
-  img.background_menu#home_background_img(src=("/img/fondo.jpg"))
-  img.background_menu#second_background_img(src=("/food.jpg"))
+  div.background_img_container
+    img(src="/img/landing.jpg", alt="")#landing
+    img(src="/img/fondo.jpg", alt="").background_img#background_img_0
+    img(src="/img/fondo1.jpg", alt="").background_img#background_img_1
+    img(src="/img/fondo2.jpg", alt="").background_img#background_img_2
+    img(src="/img/fondo3.jpg", alt="").background_img#background_img_3
+    img(src="/img/fondo4.jpg", alt="").background_img#background_img_4
+
   div.banner
-    h1 G3 Photography
+    h1 Photography
   div.home_nav
     div.nav_option
       h1.nav_option_text
-        a(href="/user") Home 
+        a fondo 0 
     div.nav_option
       h1.nav_option_text
-        a Portrait
-  script.
-    var nav_options = document.getElementsByClassName("nav_option");
-    
-    //falta hacer una función que cambie los fondos cuando se triggeree un evento 
-    //hover en las opciones
+        a fondo 1
+    div.nav_option
+      h1.nav_option_text
+        a fondo 2
+    div.nav_option
+      h1.nav_option_text
+        a fondo 3
+    div.nav_option
+      h1.nav_option_text
+        a fondo 4
+  script(src='/style_helpers.js')
     
    
     
