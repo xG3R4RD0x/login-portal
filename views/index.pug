@@ -1,36 +1,33 @@
 extends layout
 
 block layout-content
+  
   div.background_img_container
-    img(src="/img/landing.jpg", alt="")#landing
-    img(src="/img/fondo.jpg", alt="").background_img#background_img_0
-    img(src="/img/fondo1.jpg", alt="").background_img#background_img_1
-    img(src="/img/fondo2.jpg", alt="").background_img#background_img_2
-    img(src="/img/fondo3.jpg", alt="").background_img#background_img_3
-    img(src="/img/fondo4.jpg", alt="").background_img#background_img_4
-
+    video(loop muted autoplay)#landing
+      source(src="/img/landing_video_small.mp4" type= "video/mp4")
+    div.image_screen
+        .img_showcase
+        .noise_wrapper
+          .noise
   div.banner
-    h1 Photography
+    h1 Titulo
   div.home_nav
     div.nav_option
-      h1.nav_option_text
-        a fondo 0 
+      p.nav_option_text#portraits
+        a(href="/portraits") Portraits
     div.nav_option
-      h1.nav_option_text
-        a fondo 1
+      p.nav_option_text#about
+        a About me
     div.nav_option
-      h1.nav_option_text
-        a fondo 2
-    div.nav_option
-      h1.nav_option_text
-        a fondo 3
-    div.nav_option
-      h1.nav_option_text
-        a fondo 4
+      p.nav_option_text#contact
+        a Contact
+  
   script(src='/style_helpers.js')
+
+
     
    
-    
+     
     
 
 
