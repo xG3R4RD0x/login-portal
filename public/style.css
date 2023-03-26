@@ -117,22 +117,17 @@ body,
 .image_screen {
   position: absolute;
   padding: 0;
-  height: 400px;
-  width: 150px;
+  height: 435px;
+  width: 153px;
   left: calc(50% + 285px);
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: perspective(50px) rotatez(0deg) rotateX(-1deg) rotateY(-8deg) skewX(2deg);
+  transform: perspective(32px) rotatez(-1deg) rotateY(-4deg) translateX(2px) translateY(-15px);
 }
 
-.img_showcase {
-  width: 100%;
-  height: auto;
-  display: none;
-  transition: flicker 0.2s;
-}
-.noise_wrapper {
+
+.image_wrapper {
   position: absolute;
   left: 0;
   top: 0;
@@ -143,16 +138,19 @@ body,
   z-index: 10;
 }
 
-.noise_wrapper:after {
+.image_wrapper:after {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: radial-gradient(ellipse at center, rgba(26, 25, 25, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
 
+.transition {
+  animation: channel_change 1s;
+}
 
 .noise {
 
@@ -167,38 +165,46 @@ body,
   animation: noise 1s steps(8, end) infinite both;
 }
 
+/* Glitch Effect */
+.glitch_wrapper {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(26, 25, 25, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+}
 
+.glitch_layer {
 
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(img/fondo1.jpg);
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: .35;
+}
 
-/* for normal monitors */
-/* @media (aspect-ratio:1/1),
-(min-aspect-ratio: 4/3) {
-  #landing {
-    height: 100%;
-    width: auto;
-  }
-} */
+.glitch_layer:nth-child(2) {
+  transform: translateX(-5%);
+  animation: glitch-anim-1 2s infinite linear alternate;
+}
 
-/* @media (min-aspect-ratio: 16/9) {
-  #landing {
-    width: 100%;
-    object-fit: cover;
-  }
-} */
+.glitch_layer:nth-child(3) {
+  transform: translateX(3%) translateY(3%);
+  animation: glitch-anim-2 2.3s -.8s infinite linear alternate;
+}
 
-/* for ultra wide screens */
-/* @media (min-aspect-ratio: 21/9) {
-  #landing {
-    min-width: 100%;
-    height: auto;
-  }
-
-} */
-
-/* IMAGE DISPLAY */
-
-
-
+.glitch_layer:nth-child(4) {
+  transform: translateX(5%);
+  animation: glitch-anim-flash 1s infinite linear;
+}
 
 /* ANIMATIONS */
 
@@ -249,35 +255,134 @@ body,
   }
 }
 
-/* Noise transition flicker */
-
-@keyframes flicker {
+/* Glitch Effect */
+@keyframes glitch-anim-1 {
   0% {
-    opacity: 1;
-    filter: blur(0);
+    clip-path: polygon(0 0%, 100% 0%, 100% 5%, 0 5%);
   }
 
-  25% {
-    opacity: 0.8;
-    filter: blur(0.5px);
+  10% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+  }
+
+  20% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+  }
+
+  30% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+  }
+
+  40% {
+    clip-path: polygon(0 35%, 100% 35%, 100% 35%, 0 35%);
   }
 
   50% {
-    opacity: 0.6;
-    filter: blur(1px);
+    clip-path: polygon(0 45%, 100% 45%, 100% 46%, 0 46%);
   }
 
-  75% {
-    opacity: 0.8;
-    filter: blur(0.5px);
+  60% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%);
+  }
+
+  70% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+  }
+
+  80% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+  }
+
+  90% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
   }
 
   100% {
-    opacity: 1;
-    filter: blur(0);
+    clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
   }
 }
 
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%);
+  }
+
+  15% {
+    clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+  }
+
+  25% {
+    clip-path: polygon(0 8%, 100% 8%, 100% 20%, 0 20%);
+  }
+
+  30% {
+    clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+  }
+
+  45% {
+    clip-path: polygon(0 45%, 100% 45%, 100% 45%, 0 45%);
+  }
+
+  50% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 57%, 0 57%);
+  }
+
+  65% {
+    clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+  }
+
+  75% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+  }
+
+  80% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
+  }
+
+  95% {
+    clip-path: polygon(0 45%, 100% 45%, 100% 60%, 0 60%);
+  }
+
+  100% {
+    clip-path: polygon(0 11%, 100% 11%, 100% 15%, 0 15%);
+  }
+}
+
+@keyframes glitch-anim-flash {
+  0% {
+    opacity: .2;
+  }
+
+  30%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes channel_change {
+  10% {
+    transform: scale(1, 0.002);
+  }
+
+  35% {
+    transform: scale(0.2, 0.002);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.2, 0.002);
+    opacity: 0;
+  }
+
+  85% {
+    transform: scale(1, 0.002);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
 
 
 

@@ -5,18 +5,27 @@
 
 
 //change channel transition
-nav_options = document.getElementsByClassName("nav_option");
-img_showcase = document.getElementsByClassName("img_showcase")[0];
-noise= document.getElementsByClassName("noise")[0];
+var nav_options = document.getElementsByClassName("nav_option");
+var img_display = document.getElementById("image_display");
+var glitch_wrapper=document.getElementsByClassName("glitch_wrapper")[0];
 
 for (let i = 0; i < nav_options.length; i++) {
-    nav_options[i].addEventListener("mouseover", function(){
-    noise.style.display ="none";
-    img_showcase.style.display= "block";
-    img_showcase.style.background = "url(img/fondo.jpg)";
-
+    nav_options[i].addEventListener("mouseenter", function(){
+        img_display.classList.remove("noise");
+        glitch_wrapper.style.display="block";
+        img_display.classList.add("glitch_layer");
     });
 }
+
+for (let i = 0; i < nav_options.length; i++) {
+    nav_options[i].addEventListener("mouseout", function(){
+        img_display.classList.remove("glitch_layer");
+        glitch_wrapper.style.display="none";
+        img_display.classList.add("noise");
+    });
+}
+
+
 // for (let i = 0; i < nav_options.length; i++) {
 //     nav_options[i].addEventListener("mouseout", function(){
 //     nav_images[i].style.animation="fadeout .4s linear forwards";
