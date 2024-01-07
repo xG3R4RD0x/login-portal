@@ -1,1 +1,6 @@
 holaa
+
+para poder iniciar el server se debe usar:
+npm run dev
+y para editar y que los cambios se vean ese momento se puede usar
+npm run ui
