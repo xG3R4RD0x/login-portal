@@ -1,0 +1,24 @@
+extends ../layout
+
+block layout-content
+
+    header
+      h1 Bienvenido a nuestro Sitio Web
+
+    section
+      h2 Iniciar Sesión
+      form(action="/login", method="post")
+        label(for="username") Usuario:
+        input(type="text", id="username", name="username", required)
+
+        label(for="password") Contraseña:
+        input(type="password", id="password", name="password", required)
+
+        button(type="submit") Iniciar Sesión
+
+    section
+      p ¿No tienes una cuenta? 
+      a(href="/register") Registrarse aquí.
+
+    // Agregar scripts al final de tu archivo Pug si es necesario
+    script(src="main.js")

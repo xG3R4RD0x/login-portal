@@ -61,10 +61,17 @@ app.get("/contact", (req, res) => {
   })
 })
 
+app.get("/adminlogin", (req, res) => {
+  res.render("./admin/login", {
+    title: "Login"
+  })
+})
+
+
 app.get("/register", (req, res) => {
 
   const connection = require('./test_db_connection')
-  connection.query('SELECT * FROM users', function(error, results, fields) {
+  connection.query('SELECT * FROM users', function (error, results, fields) {
     if (error) {
       console.error('Error executing MySQL query: ' + error.stack);
       return res.status(500).send('Error executing MySQL query');
